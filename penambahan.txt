@@ -1,0 +1,2 @@
+mas mau minta dibantu lagi
+keperluan, menconvert hasil firebase menjadi tabel yang digunakan untuk database dalam bentuk excel, kemudian tabel ditampilkan dalam website dalam waktu 30 menit terakhir rentang 5 menit

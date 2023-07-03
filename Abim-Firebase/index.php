@@ -15,6 +15,7 @@ $db = new firebaseRDB($databaseURL);
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -55,9 +56,13 @@ $db = new firebaseRDB($databaseURL);
     <?php
       $data = $db->retrieve("abim");
       $data = json_decode($data, 1);
-foreach ($data as $id => $abim) { ?>
+      $myarray = array($data); 
+    ?>
+    <?php 
+    // echo json_encode($myarray);
+    // die(); 
+    ?>
 
-    <?php } ?>
     <!--bagian banner-->
     <section class="banner">
         <div class="container">
@@ -65,29 +70,24 @@ foreach ($data as $id => $abim) { ?>
         </div>
         <div class="col-3">
             <h2>PM 2.5</h2> <br>
-            <p><?php echo $abim['pm1'] ?></p>
         </div>
 
         <div class="col-3">
             <h2>PM 10</h2> <br>
-            <p><?php echo $abim['pm2'] ?></p>
         </div>
 
         <div class="col-3">
             <h2>TSP</h2> <br>
-            <p><?php echo $abim['tsp'] ?></p>
         </div>
         </div>
         <br>
         <div class="container">
             <div class="left-col">
                 <br>
-                <p><?php echo $abim['kuning'] ?></p> <br>
                 <p>Kategori Kuning</p> <br>
             </div>
             <div class="right-col">
                 <br>
-                <p><?php echo $abim['merah'] ?></p> <br>
                 <p>Kategori Merah</p> <br>
             </div>
 
@@ -165,6 +165,10 @@ foreach ($data as $id => $abim) { ?>
             <h3>Table</h3>
             <center>
                 <p> hasil dari pembacaan alat pemantauan kualitas udara ambien di indistri kimia</p>
+                <a href="tabel_excel.php" target="_blank" class="btn btn-warning">
+                    <i class="fa fa-file-archive"></i>
+                    Download Excel
+                </a>
             </center>
         </div>
         <table>
@@ -179,12 +183,30 @@ foreach ($data as $id => $abim) { ?>
             </thead>
             <tbody>
                 <tr>
-                    <td><?php echo $abim['tanggal'] ?></td>
-                    <td><?php echo $abim['pm1'] ?></td>
-                    <td><?php echo $abim['pm2'] ?></td>
-                    <td><?php echo $abim['tsp'] ?></td>
-                    <td style="background:<?php echo $abim['kategori'] ?>;">
-                        <h1></h1>
+                    <td><?php echo date('d-m-Y h:i') ?></td>
+                    <td><?php echo "12" ?></td>
+                    <td><?php echo "33" ?></td>
+                    <td><?php echo "48" ?></td>
+                    <td><?php echo "BAIK" ?></td>
+                    <h1></h1>
+                    </td>
+                </tr>
+                <tr>
+                    <td><?php echo date('d-m-Y h:i') ?></td>
+                    <td><?php echo "14" ?></td>
+                    <td><?php echo "35" ?></td>
+                    <td><?php echo "43" ?></td>
+                    <td><?php echo "BAIK" ?></td>
+                    <h1></h1>
+                    </td>
+                </tr>
+                <tr>
+                    <td><?php echo date('d-m-Y h:i') ?></td>
+                    <td><?php echo "11" ?></td>
+                    <td><?php echo "34" ?></td>
+                    <td><?php echo "45" ?></td>
+                    <td><?php echo "BAIK" ?></td>
+                    <h1></h1>
                     </td>
                 </tr>
             </tbody>
@@ -202,9 +224,6 @@ foreach ($data as $id => $abim) { ?>
             </thead>
             <tbody>
                 <tr style="background-color: rgb(0, 255, 0);">
-                    <td><?php echo $abim['rentang'] ?></td>
-                    <td><?php echo $abim['kategori'] ?></td>
-                    <td><?php echo $abim['penjelasan'] ?></td>
                 </tr>
                 <tr style="background-color: aqua;">
                     <td>51 - 100</td>
